@@ -55,7 +55,7 @@ public class HeartbeatBroadcaster implements Runnable {
 				log.trace("HeartbeatBroadcaster stopped");
 			}
 			int stat = statR.nextInt(100);
-			if (stat >= 10)
+			if (stat >= 30)
 				broadcast();
 		}
 	}

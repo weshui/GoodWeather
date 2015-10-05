@@ -34,6 +34,8 @@ public class HeartbeatBroadcaster implements Runnable {
 	
 	static Random r = new Random(randomSeed);
 	
+	static Random statR = new Random(randomSeed);
+	
 	public void run() {
 		log.trace("Broadcaster runs");
 		String[] addr = Adapter.getNeighbors();
@@ -52,8 +54,9 @@ public class HeartbeatBroadcaster implements Runnable {
 			} catch (InterruptedException e) {
 				log.trace("HeartbeatBroadcaster stopped");
 			}
-			
-			broadcast();
+			int stat = statR.nextInt(100);
+			if (stat >= 3)
+				broadcast();
 		}
 	}
 	
